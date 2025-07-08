@@ -1,9 +1,9 @@
-import { Button } from "./components/ui/button";
+import Question from "./home/Question";
 
 function App() {
   return (
     <>
-      <Button>Add me</Button>
+      <Question />
     </>
   );
 }
