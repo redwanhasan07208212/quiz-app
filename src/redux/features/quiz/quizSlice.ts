@@ -20,7 +20,12 @@ const initialState: QuizState = {
 export const quizSlice = createSlice({
   name: "quiz",
   initialState,
-  reducers: {},
+  reducers: {
+    setAnswer: (state, action) => {
+      const { questionIndex, answer } = action.payload;
+      state.userAnswers[questionIndex] = answer;
+    },
+  },
 });
 
 export default quizSlice.reducer;
