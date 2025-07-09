@@ -24,8 +24,11 @@ export const quizSlice = createSlice({
     setAnswer: (state, action) => {
       const { questionIndex, answer } = action.payload;
       state.userAnswers[questionIndex] = answer;
+      console.log(questionIndex, answer);
+      state.userAnswers[questionIndex] = answer;
     },
   },
 });
 
+export const { setAnswer } = quizSlice.actions;
 export default quizSlice.reducer;

@@ -8,17 +8,20 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { setAnswer } from "../redux/features/quiz/quizSlice";
 
 const Question = () => {
   const { questions, currentQuestionIndex } = useAppSelector(
     (state) => state.quiz
   );
+  const dispatch = useAppDispatch();
   const currentQuestion = questions[currentQuestionIndex];
   const [selectedOption, setSelectedOption] = useState("");
 
-  const handleSelect = (option: string) => {
-    setSelectedOption(option);
+  const handleSelect = (answer: string) => {
+    setSelectedOption(answer);
+    dispatch(setAnswer({ questionIndex: currentQuestionIndex, answer }));
   };
 
   const handleNext = () => {
