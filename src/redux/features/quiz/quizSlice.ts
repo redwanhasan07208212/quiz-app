@@ -27,8 +27,33 @@ export const quizSlice = createSlice({
       console.log(questionIndex, answer);
       state.userAnswers[questionIndex] = answer;
     },
+    nextQuestion: (state) => {
+      if (state.currentQuestionIndex < state.questions.length - 1) {
+        state.currentQuestionIndex += 1;
+      }
+    },
+    previousQuestion: (state) => {
+      if (state.currentQuestionIndex > 0) {
+        state.currentQuestionIndex -= 1;
+      }
+    },
+    startQuiz: (state) => {
+      state.isQuizStarted = true;
+      state.currentQuestionIndex = 0;
+      state.userAnswers = Array(state.questions.length).fill(null); // Reset answers
+      state.isQuizCompleted = false; // Reset completion status
+    },
+    completeQuiz: (state) => {
+      state.isQuizCompleted = true;
+    },
   },
 });
 
-export const { setAnswer } = quizSlice.actions;
+export const {
+  setAnswer,
+  nextQuestion,
+  previousQuestion,
+  startQuiz,
+  completeQuiz,
+} = quizSlice.actions;
 export default quizSlice.reducer;
