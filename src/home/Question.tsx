@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { Button } from "../components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { setAnswer } from "../redux/features/quiz/quizSlice";
+import QuizControl from "./QuizControl";
 
 const Question = () => {
   const { questions, currentQuestionIndex } = useAppSelector(
@@ -22,17 +21,6 @@ const Question = () => {
   const handleSelect = (answer: string) => {
     setSelectedOption(answer);
     dispatch(setAnswer({ questionIndex: currentQuestionIndex, answer }));
-  };
-
-  const handleNext = () => {
-    // Add your logic here to go to next question
-    console.log("Selected:", selectedOption);
-    setSelectedOption(""); // Reset for next question
-  };
-
-  const handlePrevious = () => {
-    // Add logic here to go to previous question if needed
-    console.log("Go to previous question");
   };
 
   return (
@@ -71,24 +59,7 @@ const Question = () => {
           ))}
         </CardContent>
 
-        <CardFooter className="flex justify-between items-center mt-4 px-4 pb-4">
-          <Button
-            variant="secondary"
-            className="w-28"
-            onClick={handlePrevious}
-            disabled={currentQuestionIndex === 0}
-          >
-            Previous
-          </Button>
-
-          <Button
-            className="w-28"
-            onClick={handleNext}
-            disabled={!selectedOption}
-          >
-            Next
-          </Button>
-        </CardFooter>
+        <QuizControl />
       </Card>
     </div>
   );
