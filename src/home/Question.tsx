@@ -16,6 +16,7 @@ const Question = () => {
   );
   const dispatch = useAppDispatch();
   const currentQuestion = questions[currentQuestionIndex];
+
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleSelect = (answer: string) => {

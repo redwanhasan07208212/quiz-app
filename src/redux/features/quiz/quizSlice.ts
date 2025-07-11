@@ -40,8 +40,8 @@ export const quizSlice = createSlice({
     startQuiz: (state) => {
       state.isQuizStarted = true;
       state.currentQuestionIndex = 0;
-      state.userAnswers = Array(state.questions.length).fill(null); // Reset answers
-      state.isQuizCompleted = false; // Reset completion status
+      state.userAnswers = Array(state.questions.length).fill(null);
+      state.isQuizCompleted = false;
     },
     completeQuiz: (state) => {
       state.isQuizCompleted = true;
