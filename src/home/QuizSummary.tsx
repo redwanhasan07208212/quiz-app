@@ -17,8 +17,7 @@ const QuizSummary = () => {
   const correctAnswers = questions.filter(
     (q, i) => q.correctAnswer === userAnswers[i]
   ).length;
-  const skippedAnswers = userAnswers.filter((ans) => ans === "").length;
-  const wrongAnswers = totalQuestions - correctAnswers - skippedAnswers;
+  const wrongAnswers = totalQuestions - correctAnswers;
 
   const handleRestart = () => {
     dispatch(resetQuiz());
@@ -44,10 +43,7 @@ const QuizSummary = () => {
           <span>Correct Answers:</span>
           <span>{correctAnswers}</span>
         </div>
-        <div className="flex justify-between text-yellow-500 font-semibold">
-          <span>Skipped Questions:</span>
-          <span>{skippedAnswers}</span>
-        </div>
+
         <div className="flex justify-between text-red-500 font-semibold">
           <span>Wrong Answers:</span>
           <span>{wrongAnswers}</span>
