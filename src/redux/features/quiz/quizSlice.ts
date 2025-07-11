@@ -46,6 +46,12 @@ export const quizSlice = createSlice({
     completeQuiz: (state) => {
       state.isQuizCompleted = true;
     },
+    resetQuiz: (state) => {
+      state.currentQuestionIndex = 0;
+      state.userAnswers = Array(state.questions.length).fill(null);
+      state.isQuizStarted = false;
+      state.isQuizCompleted = false;
+    },
   },
 });
 
@@ -55,5 +61,6 @@ export const {
   previousQuestion,
   startQuiz,
   completeQuiz,
+  resetQuiz,
 } = quizSlice.actions;
 export default quizSlice.reducer;

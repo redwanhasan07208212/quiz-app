@@ -25,7 +25,7 @@ const Question = () => {
   };
 
   return (
-    <div className="flex justify-center bg-gray-100 dark:bg-gray-900 px-4">
+    <div className="flex justify-center  dark:bg-gray-900 px-4">
       <Card className="w-full max-w-xl shadow-lg rounded-2xl bg-white dark:bg-gray-800">
         <CardHeader>
           <CardTitle className="text-2xl font-semibold text-gray-800 dark:text-white">
